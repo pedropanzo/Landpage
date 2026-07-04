@@ -17,12 +17,6 @@ wobotec-caracol/
 └── README.md
 ```
 
-## Como visualizar
-
-Basta abrir o ficheiro `index.html` num navegador (duplo clique ou "Abrir com…").
-Os caminhos para o CSS, o JS e a imagem são relativos, por isso funcionam
-diretamente a partir do disco, sem precisar de um servidor.
-
 ## Seções da página
 
 1. **Hero** — imagem de fundo de marca + chamada principal
