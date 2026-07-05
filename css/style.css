@@ -82,7 +82,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-200);}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:1180px;margin:0 auto;}
 .logo{display:flex;align-items:center;gap:9px;font-size:1.25rem;font-weight:800;color:var(--ink);}
-.logo .mark{width:30px;height:30px;color:var(--primary);flex-shrink:0;}
+.logo .mark{width:auto;height:30px;color:var(--primary);flex-shrink:0;}
 .nav-links{display:flex;gap:38px;align-items:center;}
 .nav-links a{font-weight:500;color:var(--gray-600);font-size:.94rem;transition:color .15s;}
 .nav-links a:hover{color:var(--ink);}
@@ -273,7 +273,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdr
 footer{background:var(--ink);color:#AEB8CE;padding:70px 0 26px;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:44px;margin-bottom:44px;}
 .footer-logo{display:flex;align-items:center;gap:9px;color:#fff;font-size:1.2rem;font-weight:800;margin-bottom:14px;}
-.footer-logo .mark{width:28px;height:28px;color:#7A9BFF;}
+.footer-logo .mark{width:auto;height:40px;color:#7A9BFF;}
 .footer-grid > div > p{font-size:.88rem;color:#8A96B3;max-width:280px;}
 .footer-grid h5{color:#fff;font-size:.88rem;margin-bottom:18px;font-weight:700;letter-spacing:.02em;}
 .footer-grid li{margin-bottom:11px;font-size:.88rem;}
