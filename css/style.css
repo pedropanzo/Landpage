@@ -234,7 +234,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdr
 }
 .logos-track{display:flex;align-items:center;gap:64px;width:max-content;animation:scrollLogos 32s linear infinite;}
 .logos-marquee-wrap:hover .logos-track{animation-play-state:paused;}
-.logo-item{display:flex;align-items:center;gap:10px;color:var(--gray-500);opacity:.75;transition:opacity .2s, color .2s;flex-shrink:0;}
+.logo-item{display:flex;align-items:center;gap:10px;color:var(--gray-500);opacity:.75;transition:opacity .2s, color .2s;flex-shrink:0;cursor: pointer;}
 .logo-item:hover{opacity:1;color:var(--ink-soft);}
 .logo-item img{height:80px;width:auto;}
 .logo-item span{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1.05rem;white-space:nowrap;}
