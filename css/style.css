@@ -313,7 +313,67 @@ footer{background:var(--ink);color:#AEB8CE;padding:70px 0 26px;}
   .form-card{padding:28px;}
 }
 
+/* ============================
+   ANIMAÇÕES — Hero flutuante
+   ============================ */
+.hero-art{ animation:heroFloat 6s ease-in-out infinite; will-change:transform; }
+.hero-art::after{
+  content:"";
+  position:absolute;
+  left:50%; bottom:6px;
+  width:70%; height:26px;
+  transform:translateX(-50%);
+  background:radial-gradient(ellipse at center, rgba(20,30,60,.16) 0%, rgba(20,30,60,0) 70%);
+  border-radius:50%;
+  animation:heroShadow 6s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes heroFloat{
+  0%,100%{ transform:translateY(0px); }
+  50%{ transform:translateY(-18px); }
+}
+@keyframes heroShadow{
+  0%,100%{ transform:translateX(-50%) scale(1); opacity:1; }
+  50%{ transform:translateX(-50%) scale(.82); opacity:.6; }
+}
+.hero h1, .hero > .container > div:first-child > p, .hero-buttons{
+  animation:heroFadeUp .8s var(--ease) both;
+}
+.hero > .container > div:first-child > p{ animation-delay:.12s; }
+.hero-buttons{ animation-delay:.24s; }
+@keyframes heroFadeUp{
+  from{ opacity:0; transform:translateY(22px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+/* ============================
+   ANIMAÇÕES — Reveal ao scroll
+   ============================ */
+.reveal{
+  opacity:0;
+  transform:translateY(36px);
+  transition:opacity .7s var(--ease), transform .7s var(--ease);
+}
+.reveal.reveal-left{ transform:translateX(-40px); }
+.reveal.reveal-right{ transform:translateX(40px); }
+.reveal.reveal-scale{ transform:scale(.92); }
+.reveal.reveal-zoom{ transform:scale(.85); opacity:0; }
+
+.reveal.in-view{
+  opacity:1;
+  transform:none;
+}
+
+.feature-card.reveal,
+.product-card.reveal,
+.step-card.reveal,
+.testi-card.reveal,
+.service-chip.reveal{
+  transition:opacity .7s var(--ease), transform .7s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+}
+
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important;animation:none !important;}
   .logos-track{animation:none !important;}
+  .reveal{opacity:1 !important;transform:none !important;}
 }
