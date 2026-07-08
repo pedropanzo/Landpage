@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
       { selector: '.testi-card', effect: 'reveal-scale' },
       { selector: '.guarantee', effect: 'reveal-zoom' },
       { selector: '#diferenciais .feature-card', effect: '' },
+      { selector: '#casos .case-card', effect: 'reveal-scale' },
       { selector: '.contact-info .contact-item', effect: 'reveal-left' },
       { selector: '.contact-info .hours-box', effect: 'reveal-left' },
       { selector: '.form-card', effect: 'reveal-right' },
