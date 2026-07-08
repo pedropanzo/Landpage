@@ -1,1324 +1,556 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wobotec | Caracol — Gestão Inteligente</title>
-    <meta
-      name="description"
-      content="A Wobotec desenvolve o Caracol, um ecossistema completo de sistemas de gestão modernos, seguros e eficientes."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <!-- ICON SPRITE -->
-    <svg style="display: none" aria-hidden="true">
-      <defs>
-        <symbol id="i-spiral" viewBox="0 0 24 24">
-          <path
-            d="M13 3.2a9 9 0 1 0 6.7 15M13 3.2a5.3 5.3 0 0 1 4 8.9M13 3.2a1.6 1.6 0 0 1 1.2 2.7"
-          />
-        </symbol>
-        <symbol id="i-target" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="8.2" />
-          <circle cx="12" cy="12" r="4.6" />
-          <circle class="icon-solid" cx="12" cy="12" r="1.3" />
-        </symbol>
-        <symbol id="i-users" viewBox="0 0 24 24">
-          <circle cx="9" cy="8" r="3.1" />
-          <path d="M3.6 20c0-3.2 2.7-5.2 5.4-5.2s5.4 2 5.4 5.2" />
-          <circle cx="17.2" cy="9" r="2.3" />
-          <path d="M15.4 20.2c0-2.6 1.4-4.3 3.3-4.6" />
-        </symbol>
-        <symbol id="i-shield-check" viewBox="0 0 24 24">
-          <path
-            d="M12 3.3l6.6 2.6v5.4c0 4.6-3.1 7.6-6.6 8.4-3.5-.8-6.6-3.8-6.6-8.4V5.9z"
-          />
-          <path d="M9 12.1l2 2 3.7-4" />
-        </symbol>
-        <symbol id="i-zap" viewBox="0 0 24 24">
-          <path d="M13 2.2 4.4 13.8h5.8l-.9 8 9.3-11.6h-5.8l1-8z" />
-        </symbol>
-        <symbol id="i-shield" viewBox="0 0 24 24">
-          <path
-            d="M12 3.3l6.6 2.6v5.4c0 4.6-3.1 7.6-6.6 8.4-3.5-.8-6.6-3.8-6.6-8.4V5.9z"
-          />
-        </symbol>
-        <symbol id="i-activity" viewBox="0 0 24 24">
-          <polyline points="3,13 7.5,13 9.5,6.5 14,18.5 16,13 21,13" />
-        </symbol>
-        <symbol id="i-cloud" viewBox="0 0 24 24">
-          <path
-            d="M7.2 18.4a4.3 4.3 0 0 1-.5-8.6A5.7 5.7 0 0 1 17.5 9a4.6 4.6 0 0 1-1 9.4H7.2z"
-          />
-        </symbol>
-        <symbol id="i-bar-chart" viewBox="0 0 24 24">
-          <line x1="5" y1="20" x2="5" y2="12.5" />
-          <line x1="12" y1="20" x2="12" y2="5" />
-          <line x1="19" y1="20" x2="19" y2="15.5" />
-          <line x1="3" y1="20.5" x2="21" y2="20.5" />
-        </symbol>
-        <symbol id="i-sliders" viewBox="0 0 24 24">
-          <line x1="4" y1="6.5" x2="20" y2="6.5" />
-          <circle cx="9" cy="6.5" r="2" />
-          <line x1="4" y1="12" x2="20" y2="12" />
-          <circle cx="16" cy="12" r="2" />
-          <line x1="4" y1="17.5" x2="20" y2="17.5" />
-          <circle cx="11" cy="17.5" r="2" />
-        </symbol>
-        <symbol id="i-smartphone" viewBox="0 0 24 24">
-          <rect x="7" y="2.3" width="10" height="19.4" rx="2.2" />
-          <line x1="10.8" y1="18.2" x2="13.2" y2="18.2" />
-        </symbol>
-        <symbol id="i-rocket" viewBox="0 0 24 24">
-          <path
-            d="M12 2.3c3.1 2.1 5.1 6 5.1 9.9 0 2-.9 3.8-1.9 4.9l-1 3-2.2-2.2-2.2 2.2-1-3c-1-1.1-1.9-2.9-1.9-4.9 0-3.9 2-7.8 5.1-9.9z"
-          />
-          <circle cx="12" cy="10.5" r="1.6" />
-        </symbol>
-        <symbol id="i-headset" viewBox="0 0 24 24">
-          <path d="M4.5 13.5v-1.6a7.5 7.5 0 0 1 15 0v1.6" />
-          <rect x="3" y="13.2" width="4" height="6.3" rx="1.5" />
-          <rect x="17" y="13.2" width="4" height="6.3" rx="1.5" />
-        </symbol>
-        <symbol id="i-refresh" viewBox="0 0 24 24">
-          <path d="M20 11A8 8 0 0 0 6.3 6.3L4.2 8.4" />
-          <path d="M4.2 4.2v4.2h4.2" />
-          <path d="M4 13a8 8 0 0 0 13.7 4.7l2.1-2.1" />
-          <path d="M19.8 19.8v-4.2h-4.2" />
-        </symbol>
-        <symbol id="i-dollar" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="9" />
-          <path
-            d="M12 6.8v10.4M9.3 9.3c0-1.4 1.2-2.3 2.7-2.3s2.7.9 2.7 2c0 3.1-5.4 1.7-5.4 4.8 0 1.1 1.2 2 2.7 2s2.7-.9 2.7-2.3"
-          />
-        </symbol>
-        <symbol id="i-cap" viewBox="0 0 24 24">
-          <path d="M2.3 9 12 5l9.7 4-9.7 4-9.7-4z" />
-          <path d="M6.4 11.2v3.9c0 1.6 2.5 3.1 5.6 3.1s5.6-1.5 5.6-3.1v-3.9" />
-          <line x1="21.7" y1="9" x2="21.7" y2="15.2" />
-        </symbol>
-        <symbol id="i-trending" viewBox="0 0 24 24">
-          <polyline points="3,17.5 9,11 13,15 21,6" />
-          <polyline points="15,6 21,6 21,12" />
-        </symbol>
-        <symbol id="i-message" viewBox="0 0 24 24">
-          <path d="M4 12a8 8 0 1 1 3.2 6.4L4 20l1.2-3.9A7.9 7.9 0 0 1 4 12z" />
-        </symbol>
-        <symbol id="i-clipboard" viewBox="0 0 24 24">
-          <rect x="5" y="4.2" width="14" height="17" rx="2.2" />
-          <rect x="9" y="2.2" width="6" height="4" rx="1" />
-          <line x1="8" y1="11.3" x2="16" y2="11.3" />
-          <line x1="8" y1="15.3" x2="16" y2="15.3" />
-        </symbol>
-        <symbol id="i-clipboard-check" viewBox="0 0 24 24">
-          <rect x="5" y="4.2" width="14" height="17" rx="2.2" />
-          <rect x="9" y="2.2" width="6" height="4" rx="1" />
-          <path d="M9 13.2l2 2 4-4.5" />
-        </symbol>
-        <symbol id="i-settings" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="3.1" />
-          <path
-            d="M12 2.5v3M12 18.5v3M4.7 4.7l2.1 2.1M17.2 17.2l2.1 2.1M2.5 12h3M18.5 12h3M4.7 19.3l2.1-2.1M17.2 6.8l2.1-2.1"
-          />
-        </symbol>
-        <symbol id="i-repeat" viewBox="0 0 24 24">
-          <path d="M17 2.5 21 6.5 17 10.5" />
-          <path d="M3 11V9a4 4 0 0 1 4-4h14" />
-          <path d="M7 21.5 3 17.5 7 13.5" />
-          <path d="M21 13v2a4 4 0 0 1-4 4H3" />
-        </symbol>
-        <symbol id="i-phone" viewBox="0 0 24 24">
-          <path
-            d="M5.2 4h3l1.9 4.7-2 1.2a11 11 0 0 0 5 5l1.2-2L18 14.8v3a2 2 0 0 1-2.1 2A16 16 0 0 1 3.2 6.1 2 2 0 0 1 5.2 4z"
-          />
-        </symbol>
-        <symbol id="i-mail" viewBox="0 0 24 24">
-          <rect x="3" y="5.2" width="18" height="13.8" rx="2.2" />
-          <path d="M3.3 6.8 12 13l8.7-6.2" />
-        </symbol>
-        <symbol id="i-pin" viewBox="0 0 24 24">
-          <path
-            d="M12 22s7.2-7.6 7.2-12.4A7.2 7.2 0 1 0 4.8 9.6C4.8 14.4 12 22 12 22z"
-          />
-          <circle cx="12" cy="9.7" r="2.4" />
-        </symbol>
-        <symbol id="i-star" viewBox="0 0 24 24">
-          <path
-            class="icon-solid"
-            d="M12 2.8 14.6 8.6 20.9 9.3 16.2 13.6 17.5 19.8 12 16.5 6.5 19.8 7.8 13.6 3.1 9.3 9.4 8.6z"
-          />
-        </symbol>
-        <symbol id="i-cart" viewBox="0 0 24 24">
-          <circle cx="9.2" cy="20.2" r="1.4" />
-          <circle cx="17.8" cy="20.2" r="1.4" />
-          <path
-            d="M2.2 3h3l2.3 12.3a2 2 0 0 0 2 1.6h9.3a2 2 0 0 0 2-1.6L22.5 6.8H5.6"
-          />
-        </symbol>
-        <symbol id="i-heart-pulse" viewBox="0 0 24 24">
-          <path
-            d="M19.8 8.4c0-2.4-2-4.4-4.4-4.4-1.5 0-2.8.7-3.5 1.8-.7-1.1-2-1.8-3.5-1.8-2.4 0-4.4 2-4.4 4.4 0 4.3 6.2 9 7.9 10.2 1.7-1.2 7.9-5.9 7.9-10.2z"
-          />
-          <polyline
-            points="6.2,9.6 8.8,9.6 10.2,6.8 11.8,12.6 13.2,9.6 17.4,9.6"
-          />
-        </symbol>
-        <!-- services icon set -->
-        <symbol id="i-network" viewBox="0 0 24 24">
-          <circle cx="12" cy="4.5" r="2" />
-          <circle cx="5" cy="18.5" r="2" />
-          <circle cx="19" cy="18.5" r="2" />
-          <path d="M12 6.5 6.6 16.6M12 6.5l5.4 10.1M7.6 18.5h8.8" />
-        </symbol>
-        <symbol id="i-server" viewBox="0 0 24 24">
-          <rect x="4" y="4" width="16" height="6" rx="1.5" />
-          <rect x="4" y="14" width="16" height="6" rx="1.5" />
-          <circle class="icon-solid" cx="7.5" cy="7" r="1" />
-          <circle class="icon-solid" cx="7.5" cy="17" r="1" />
-        </symbol>
-        <symbol id="i-building" viewBox="0 0 24 24">
-          <rect x="6" y="3" width="12" height="18" />
-          <line x1="9" y1="7" x2="11" y2="7" />
-          <line x1="13" y1="7" x2="15" y2="7" />
-          <line x1="9" y1="11" x2="11" y2="11" />
-          <line x1="13" y1="11" x2="15" y2="11" />
-          <line x1="9" y1="15" x2="11" y2="15" />
-          <line x1="13" y1="15" x2="15" y2="15" />
-          <line x1="10" y1="21" x2="10" y2="18" />
-          <line x1="14" y1="21" x2="14" y2="18" />
-        </symbol>
-        <symbol id="i-monitor" viewBox="0 0 24 24">
-          <rect x="3" y="4.5" width="18" height="12" rx="1.5" />
-          <line x1="8" y1="20" x2="16" y2="20" />
-          <line x1="12" y1="16.5" x2="12" y2="20" />
-        </symbol>
-        <symbol id="i-lock" viewBox="0 0 24 24">
-          <rect x="5" y="10.5" width="14" height="9" rx="1.8" />
-          <path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" />
-          <circle class="icon-solid" cx="12" cy="15" r="1.3" />
-        </symbol>
-        <symbol id="i-cpu" viewBox="0 0 24 24">
-          <rect x="6" y="6" width="12" height="12" rx="1.5" />
-          <rect x="9.5" y="9.5" width="5" height="5" />
-          <line x1="12" y1="2.5" x2="12" y2="6" />
-          <line x1="12" y1="18" x2="12" y2="21.5" />
-          <line x1="2.5" y1="12" x2="6" y2="12" />
-          <line x1="18" y1="12" x2="21.5" y2="12" />
-        </symbol>
-        <symbol id="i-satellite" viewBox="0 0 24 24">
-          <path d="M4 15a9 9 0 0 1 9-9" />
-          <path d="M4 15a5 5 0 0 1 5-5" />
-          <circle class="icon-solid" cx="4" cy="15" r="1.4" />
-          <line x1="13" y1="6" x2="19" y2="3" />
-          <line x1="4" y1="15" x2="9" y2="20" />
-        </symbol>
-        <symbol id="i-palette" viewBox="0 0 24 24">
-          <path
-            d="M12 3a9 9 0 1 0 0 18c1.2 0 2-1 2-2 0-.6-.3-1-.6-1.4-.3-.4-.5-.7-.5-1.2 0-.9.7-1.4 1.6-1.4H17a4 4 0 0 0 4-4c0-4.4-4-8-9-8z"
-          />
-          <circle class="icon-solid" cx="7.5" cy="10.5" r="1.1" />
-          <circle class="icon-solid" cx="9.5" cy="7" r="1.1" />
-          <circle class="icon-solid" cx="14.5" cy="7" r="1.1" />
-          <circle class="icon-solid" cx="16.5" cy="10.5" r="1.1" />
-        </symbol>
-        <symbol id="i-chair" viewBox="0 0 24 24">
-          <path d="M7 4v8a5 5 0 0 0 5 5 5 5 0 0 0 5-5V4" />
-          <line x1="7" y1="21" x2="7" y2="17" />
-          <line x1="17" y1="21" x2="17" y2="17" />
-          <line x1="5" y1="4" x2="9" y2="4" />
-          <line x1="15" y1="4" x2="19" y2="4" />
-        </symbol>
-        <symbol id="i-package" viewBox="0 0 24 24">
-          <path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z" />
-          <path d="M3.5 7.5 12 12l8.5-4.5" />
-          <line x1="12" y1="12" x2="12" y2="21" />
-        </symbol>
-        <symbol id="i-hardhat" viewBox="0 0 24 24">
-          <path d="M4 15h16" />
-          <path d="M5.5 15a6.5 6.5 0 0 1 13 0" />
-          <rect x="10.5" y="4.5" width="3" height="2.5" rx=".5" />
-        </symbol>
-        <symbol id="i-megaphone" viewBox="0 0 24 24">
-          <path d="M3 10v4h3l7 4V6l-7 4z" />
-          <path d="M13 9a3 3 0 0 1 0 6" />
-          <path d="M16 6a7 7 0 0 1 0 12" />
-        </symbol>
-        <symbol id="i-database" viewBox="0 0 24 24">
-          <ellipse cx="12" cy="5.5" rx="8" ry="3" />
-          <path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" />
-          <path d="M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" />
-        </symbol>
-        <symbol id="i-droplet" viewBox="0 0 24 24">
-          <path d="M12 3s7 8 7 12.5a7 7 0 1 1-14 0C5 11 12 3 12 3z" />
-        </symbol>
-        <symbol id="i-sun" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="4.3" />
-          <path
-            d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"
-          />
-        </symbol>
-        <symbol id="i-pill" viewBox="0 0 24 24">
-          <path
-            d="M6.5 6.5a5 5 0 0 1 7.1 0l3.9 3.9a5 5 0 0 1-7.1 7.1l-3.9-3.9a5 5 0 0 1 0-7.1z"
-          />
-          <line x1="9.5" y1="9.5" x2="14.5" y2="14.5" />
-        </symbol>
-        <symbol id="i-briefcase" viewBox="0 0 24 24">
-          <rect x="3" y="7.5" width="18" height="12" rx="2" />
-          <path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5" />
-          <line x1="3" y1="12.5" x2="21" y2="12.5" />
-        </symbol>
-      </defs>
-    </svg>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wobotec | Caracol — Gestão Inteligente</title>
+<meta name="description" content="A Wobotec desenvolve o Caracol, um ecossistema completo de sistemas de gestão modernos, seguros e eficientes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-    <header>
-      <nav class="nav">
-        <a href="#" class="logo">
-          <img class="mark" src="assets/img/logo.png" alt=""
-        /></a>
+<!-- ICON SPRITE -->
+<svg style="display:none" aria-hidden="true">
+<defs>
+<symbol id="i-spiral" viewBox="0 0 24 24"><path d="M13 3.2a9 9 0 1 0 6.7 15M13 3.2a5.3 5.3 0 0 1 4 8.9M13 3.2a1.6 1.6 0 0 1 1.2 2.7"/></symbol>
+<symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4.6"/><circle class="icon-solid" cx="12" cy="12" r="1.3"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.1"/><path d="M3.6 20c0-3.2 2.7-5.2 5.4-5.2s5.4 2 5.4 5.2"/><circle cx="17.2" cy="9" r="2.3"/><path d="M15.4 20.2c0-2.6 1.4-4.3 3.3-4.6"/></symbol>
+<symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 3.3l6.6 2.6v5.4c0 4.6-3.1 7.6-6.6 8.4-3.5-.8-6.6-3.8-6.6-8.4V5.9z"/><path d="M9 12.1l2 2 3.7-4"/></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2.2 4.4 13.8h5.8l-.9 8 9.3-11.6h-5.8l1-8z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.3l6.6 2.6v5.4c0 4.6-3.1 7.6-6.6 8.4-3.5-.8-6.6-3.8-6.6-8.4V5.9z"/></symbol>
+<symbol id="i-activity" viewBox="0 0 24 24"><polyline points="3,13 7.5,13 9.5,6.5 14,18.5 16,13 21,13"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7.2 18.4a4.3 4.3 0 0 1-.5-8.6A5.7 5.7 0 0 1 17.5 9a4.6 4.6 0 0 1-1 9.4H7.2z"/></symbol>
+<symbol id="i-bar-chart" viewBox="0 0 24 24"><line x1="5" y1="20" x2="5" y2="12.5"/><line x1="12" y1="20" x2="12" y2="5"/><line x1="19" y1="20" x2="19" y2="15.5"/><line x1="3" y1="20.5" x2="21" y2="20.5"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" y1="6.5" x2="20" y2="6.5"/><circle cx="9" cy="6.5" r="2"/><line x1="4" y1="12" x2="20" y2="12"/><circle cx="16" cy="12" r="2"/><line x1="4" y1="17.5" x2="20" y2="17.5"/><circle cx="11" cy="17.5" r="2"/></symbol>
+<symbol id="i-smartphone" viewBox="0 0 24 24"><rect x="7" y="2.3" width="10" height="19.4" rx="2.2"/><line x1="10.8" y1="18.2" x2="13.2" y2="18.2"/></symbol>
+<symbol id="i-rocket" viewBox="0 0 24 24"><path d="M12 2.3c3.1 2.1 5.1 6 5.1 9.9 0 2-.9 3.8-1.9 4.9l-1 3-2.2-2.2-2.2 2.2-1-3c-1-1.1-1.9-2.9-1.9-4.9 0-3.9 2-7.8 5.1-9.9z"/><circle cx="12" cy="10.5" r="1.6"/></symbol>
+<symbol id="i-headset" viewBox="0 0 24 24"><path d="M4.5 13.5v-1.6a7.5 7.5 0 0 1 15 0v1.6"/><rect x="3" y="13.2" width="4" height="6.3" rx="1.5"/><rect x="17" y="13.2" width="4" height="6.3" rx="1.5"/></symbol>
+<symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11A8 8 0 0 0 6.3 6.3L4.2 8.4"/><path d="M4.2 4.2v4.2h4.2"/><path d="M4 13a8 8 0 0 0 13.7 4.7l2.1-2.1"/><path d="M19.8 19.8v-4.2h-4.2"/></symbol>
+<symbol id="i-dollar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6.8v10.4M9.3 9.3c0-1.4 1.2-2.3 2.7-2.3s2.7.9 2.7 2c0 3.1-5.4 1.7-5.4 4.8 0 1.1 1.2 2 2.7 2s2.7-.9 2.7-2.3"/></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24"><path d="M2.3 9 12 5l9.7 4-9.7 4-9.7-4z"/><path d="M6.4 11.2v3.9c0 1.6 2.5 3.1 5.6 3.1s5.6-1.5 5.6-3.1v-3.9"/><line x1="21.7" y1="9" x2="21.7" y2="15.2"/></symbol>
+<symbol id="i-trending" viewBox="0 0 24 24"><polyline points="3,17.5 9,11 13,15 21,6"/><polyline points="15,6 21,6 21,12"/></symbol>
+<symbol id="i-message" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 1 3.2 6.4L4 20l1.2-3.9A7.9 7.9 0 0 1 4 12z"/></symbol>
+<symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="5" y="4.2" width="14" height="17" rx="2.2"/><rect x="9" y="2.2" width="6" height="4" rx="1"/><line x1="8" y1="11.3" x2="16" y2="11.3"/><line x1="8" y1="15.3" x2="16" y2="15.3"/></symbol>
+<symbol id="i-clipboard-check" viewBox="0 0 24 24"><rect x="5" y="4.2" width="14" height="17" rx="2.2"/><rect x="9" y="2.2" width="6" height="4" rx="1"/><path d="M9 13.2l2 2 4-4.5"/></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.1"/><path d="M12 2.5v3M12 18.5v3M4.7 4.7l2.1 2.1M17.2 17.2l2.1 2.1M2.5 12h3M18.5 12h3M4.7 19.3l2.1-2.1M17.2 6.8l2.1-2.1"/></symbol>
+<symbol id="i-repeat" viewBox="0 0 24 24"><path d="M17 2.5 21 6.5 17 10.5"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 21.5 3 17.5 7 13.5"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5.2 4h3l1.9 4.7-2 1.2a11 11 0 0 0 5 5l1.2-2L18 14.8v3a2 2 0 0 1-2.1 2A16 16 0 0 1 3.2 6.1 2 2 0 0 1 5.2 4z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.2" width="18" height="13.8" rx="2.2"/><path d="M3.3 6.8 12 13l8.7-6.2"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7.2-7.6 7.2-12.4A7.2 7.2 0 1 0 4.8 9.6C4.8 14.4 12 22 12 22z"/><circle cx="12" cy="9.7" r="2.4"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path class="icon-solid" d="M12 2.8 14.6 8.6 20.9 9.3 16.2 13.6 17.5 19.8 12 16.5 6.5 19.8 7.8 13.6 3.1 9.3 9.4 8.6z"/></symbol>
+<symbol id="i-cart" viewBox="0 0 24 24"><circle cx="9.2" cy="20.2" r="1.4"/><circle cx="17.8" cy="20.2" r="1.4"/><path d="M2.2 3h3l2.3 12.3a2 2 0 0 0 2 1.6h9.3a2 2 0 0 0 2-1.6L22.5 6.8H5.6"/></symbol>
+<symbol id="i-heart-pulse" viewBox="0 0 24 24"><path d="M19.8 8.4c0-2.4-2-4.4-4.4-4.4-1.5 0-2.8.7-3.5 1.8-.7-1.1-2-1.8-3.5-1.8-2.4 0-4.4 2-4.4 4.4 0 4.3 6.2 9 7.9 10.2 1.7-1.2 7.9-5.9 7.9-10.2z"/><polyline points="6.2,9.6 8.8,9.6 10.2,6.8 11.8,12.6 13.2,9.6 17.4,9.6"/></symbol>
+<!-- services icon set -->
+<symbol id="i-network" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2"/><circle cx="5" cy="18.5" r="2"/><circle cx="19" cy="18.5" r="2"/><path d="M12 6.5 6.6 16.6M12 6.5l5.4 10.1M7.6 18.5h8.8"/></symbol>
+<symbol id="i-server" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/><circle class="icon-solid" cx="7.5" cy="7" r="1"/><circle class="icon-solid" cx="7.5" cy="17" r="1"/></symbol>
+<symbol id="i-building" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18"/><line x1="9" y1="7" x2="11" y2="7"/><line x1="13" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="11" y2="11"/><line x1="13" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="11" y2="15"/><line x1="13" y1="15" x2="15" y2="15"/><line x1="10" y1="21" x2="10" y2="18"/><line x1="14" y1="21" x2="14" y2="18"/></symbol>
+<symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12" rx="1.5"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="16.5" x2="12" y2="20"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9" rx="1.8"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/><circle class="icon-solid" cx="12" cy="15" r="1.3"/></symbol>
+<symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"/><rect x="9.5" y="9.5" width="5" height="5"/><line x1="12" y1="2.5" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21.5" y2="12"/></symbol>
+<symbol id="i-satellite" viewBox="0 0 24 24"><path d="M4 15a9 9 0 0 1 9-9"/><path d="M4 15a5 5 0 0 1 5-5"/><circle class="icon-solid" cx="4" cy="15" r="1.4"/><line x1="13" y1="6" x2="19" y2="3"/><line x1="4" y1="15" x2="9" y2="20"/></symbol>
+<symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.2 0 2-1 2-2 0-.6-.3-1-.6-1.4-.3-.4-.5-.7-.5-1.2 0-.9.7-1.4 1.6-1.4H17a4 4 0 0 0 4-4c0-4.4-4-8-9-8z"/><circle class="icon-solid" cx="7.5" cy="10.5" r="1.1"/><circle class="icon-solid" cx="9.5" cy="7" r="1.1"/><circle class="icon-solid" cx="14.5" cy="7" r="1.1"/><circle class="icon-solid" cx="16.5" cy="10.5" r="1.1"/></symbol>
+<symbol id="i-chair" viewBox="0 0 24 24"><path d="M7 4v8a5 5 0 0 0 5 5 5 5 0 0 0 5-5V4"/><line x1="7" y1="21" x2="7" y2="17"/><line x1="17" y1="21" x2="17" y2="17"/><line x1="5" y1="4" x2="9" y2="4"/><line x1="15" y1="4" x2="19" y2="4"/></symbol>
+<symbol id="i-package" viewBox="0 0 24 24"><path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5 12 12l8.5-4.5"/><line x1="12" y1="12" x2="12" y2="21"/></symbol>
+<symbol id="i-hardhat" viewBox="0 0 24 24"><path d="M4 15h16"/><path d="M5.5 15a6.5 6.5 0 0 1 13 0"/><rect x="10.5" y="4.5" width="3" height="2.5" rx=".5"/></symbol>
+<symbol id="i-megaphone" viewBox="0 0 24 24"><path d="M3 10v4h3l7 4V6l-7 4z"/><path d="M13 9a3 3 0 0 1 0 6"/><path d="M16 6a7 7 0 0 1 0 12"/></symbol>
+<symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/><path d="M4 11.5v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+<symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 3s7 8 7 12.5a7 7 0 1 1-14 0C5 11 12 3 12 3z"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.3"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></symbol>
+<symbol id="i-pill" viewBox="0 0 24 24"><path d="M6.5 6.5a5 5 0 0 1 7.1 0l3.9 3.9a5 5 0 0 1-7.1 7.1l-3.9-3.9a5 5 0 0 1 0-7.1z"/><line x1="9.5" y1="9.5" x2="14.5" y2="14.5"/></symbol>
+<symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5"/><line x1="3" y1="12.5" x2="21" y2="12.5"/></symbol>
+</defs>
+</svg>
 
-        <div class="nav-right">
-          <div class="nav-links">
-            <a href="#sobre">Sobre</a>
-            <a href="#caracol">Caracol</a>
-            <a href="#produtos">Produtos</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#">Loja</a>
-            <a href="#diferenciais">Diferenciais</a>
-          </div>
-          <a class="nav-cta" href="#contato">Contato</a>
-          <button class="menu-toggle" aria-label="Abrir menu">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            >
-              <line x1="4" y1="7" x2="20" y2="7" />
-              <line x1="4" y1="12" x2="20" y2="12" />
-              <line x1="4" y1="17" x2="20" y2="17" />
-            </svg>
-          </button>
-        </div>
-      </nav>
-      <div class="mobile-panel" id="mobilePanel">
-        <a href="#sobre">Sobre</a>
-        <a href="#caracol">Caracol</a>
-        <a href="#produtos">Produtos</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#diferenciais">Diferenciais</a>
-        <a href="#contato">Contato</a>
+<header>
+  <nav class="nav">
+    <a href="#" class="logo"> <img class="mark" src="assets/img/logo.png" alt=""></a>    
+    <div class="nav-right">
+      <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#caracol">Caracol</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#">Loja</a>
+      <a href="#diferenciais">Diferenciais</a>
+    </div>
+      <a class="nav-cta" href="#contato">Contato</a>
+      <button class="menu-toggle" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#sobre">Sobre</a>
+    <a href="#caracol">Caracol</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#diferenciais">Diferenciais</a>
+    <a href="#contato">Contato</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Transforme sua gestão com <span class="accent">inteligência</span></h1>
+      <p>A Wobotec desenvolve o <strong>Caracol</strong>, um ecossistema completo de sistemas de gestão modernos, seguros e eficientes que impulsionam o crescimento do seu negócio.</p>
+      <div class="hero-buttons">
+        <a href="#caracol" class="btn btn-primary">Conhecer o Caracol
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13,6 19,12 13,18"/></svg>
+        </a>
+        <a href="#contato" class="btn btn-outline">Solicitar Demonstração</a>
       </div>
-    </header>
+    </div>
+    <div class="hero-art-wrap">
+      <div class="hero-art">
+        <img src="assets/img/car-agt.png" alt="LogoHero">
+      </div>      
+    </div>
+  </div>
+</section>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Sobre a <span class="accent">Wobotec</span></h2>
+      <p class="section-sub">Somos uma software house especializada em criar soluções inteligentes e escaláveis que transformam a forma como empresas gerenciam seus processos.</p>
+    </div>
+
+    <div class="grid-4">
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-target"/></svg></div>
+        <h3>Foco em Resultados</h3>
+        <p>Desenvolvemos soluções que geram impacto real no seu negócio.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-users"/></svg></div>
+        <h3>Time Especializado</h3>
+        <p>Profissionais qualificados com anos de experiência no mercado.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-shield-check"/></svg></div>
+        <h3>Qualidade Garantida</h3>
+        <p>Processos rigorosos de desenvolvimento e testes de qualidade.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-zap"/></svg></div>
+        <h3>Tecnologia de Ponta</h3>
+        <p>Utilizamos as mais modernas ferramentas e frameworks do mercado.</p>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat"><b>10+</b><span>Anos de experiência</span></div>
+      <div class="stat"><b>500+</b><span>Clientes satisfeitos</span></div>
+      <div class="stat"><b>99.9%</b><span>Disponibilidade</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CARACOL -->
+<section id="caracol" class="bg-tint">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><svg class="icon" style="width:14px;height:14px"><use href="#i-spiral"/></svg>Produto Principal</span>
+      <h2 class="section-title">Conheça o <span class="accent">Caracol</span></h2>
+      <p class="section-sub">Um ecossistema completo de sistemas de gestão modernos, seguros e eficientes. Desenvolvido para atender as necessidades específicas de diferentes setores com excelência e inovação.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-shield"/></svg></div>
+        <h3>Segurança Avançada</h3>
+        <p>Proteção de dados com criptografia de ponta e conformidade com LGPD</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-activity"/></svg></div>
+        <h3>Alta Performance</h3>
+        <p>Sistema otimizado para processar milhares de operações simultaneamente</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-cloud"/></svg></div>
+        <h3>Cloud Native</h3>
+        <p>Hospedagem em nuvem com backup automático e acesso de qualquer lugar</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-bar-chart"/></svg></div>
+        <h3>Análise Inteligente</h3>
+        <p>Dashboards e relatórios em tempo real para decisões estratégicas</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-sliders"/></svg></div>
+        <h3>Controle Total</h3>
+        <p>Gerencie permissões e acessos com granularidade e auditoria completa</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-smartphone"/></svg></div>
+        <h3>Multi-Plataforma</h3>
+        <p>Acesse pelo computador, tablet ou smartphone com interface responsiva</p>
+      </div>
+    </div>
+
+    <div class="caracol-cta">
+      <h3>Por que escolher o Caracol?</h3>
+      <p>Mais do que um software, o Caracol é um parceiro estratégico que evolui junto com seu negócio. Oferecemos não apenas tecnologia, mas uma solução completa que transforma a gestão empresarial em vantagem competitiva.</p>
+      <div class="hero-buttons">
+        <a href="#contato" class="btn btn-primary">Agendar Demonstração</a>
+        <a href="#" class="btn btn-outline">Ver Casos de Sucesso</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section id="produtos">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Nossos <span class="accent">Produtos</span></h2>
+      <p class="section-sub">Soluções especializadas para cada segmento, mantendo a mesma excelência e qualidade que fazem do Caracol referência no mercado.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="product-card featured">
+        <div class="featured-tag">Mais Procurado</div>
+        <div class="product-body">
+          <div class="icon-box"><svg class="icon"><use href="#i-cap"/></svg></div>
+          <h3>Caracol Escolar</h3>
+          <p class="lead">Sistema de gestão escolar completo</p>
+          <p class="desc">Controle de matrículas, notas, frequência, financeiro e comunicação com pais.</p>
+        </div>
+        <div class="product-footer"><a href="#contato" class="btn btn-primary btn-block">Saiba Mais</a></div>
+      </div>
+      <div class="product-card">
+        <div class="product-body">
+          <div class="icon-box"><svg class="icon"><use href="#i-cart"/></svg></div>
+          <h3>Caracol Venda</h3>
+          <p class="lead">Sistema de gestão comercial e controle de vendas</p>
+          <p class="desc">PDV, estoque, nota fiscal eletrônica, relatórios de vendas e CRM integrado.</p>
+        </div>
+        <div class="product-footer"><a href="#contato" class="btn btn-outline btn-block">Saiba Mais</a></div>
+      </div>
+      <div class="product-card">
+        <div class="product-body">
+          <div class="icon-box"><svg class="icon"><use href="#i-heart-pulse"/></svg></div>
+          <h3>Caracol Hospitalar</h3>
+          <p class="lead">Sistema de gestão hospitalar e clínica</p>
+          <p class="desc">Prontuário eletrônico, agendamento, faturamento, controle de leitos e farmácia.</p>
+        </div>
+        <div class="product-footer"><a href="#contato" class="btn btn-outline btn-block">Saiba Mais</a></div>
+      </div>
+    </div>
+
+    <p class="center-note">Cada produto é totalmente customizável para atender as necessidades específicas do seu negócio</p>
+    <div class="center-btn"><a href="#contato" class="btn btn-primary">Solicitar Orçamento Personalizado</a></div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="bg-tint">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Portfólio de Serviços</span>
+      <h2 class="section-title">Nossos <span class="accent">Serviços</span></h2>
+      <p class="section-sub">Além do Caracol, oferecemos um portfólio amplo de soluções em tecnologia, infraestrutura e engenharia para atender empresas de qualquer porte e setor.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-network"/></svg></div><span>Redes estruturadas</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-server"/></svg></div><span>Administração de sistemas</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-building"/></svg></div><span>Arquitectura e urbanismo</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-monitor"/></svg></div><span>Aplicações móveis, Websites, ERP e Desktop</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-message"/></svg></div><span>Sistemas unificados de comunicação</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-lock"/></svg></div><span>Soluções de segurança de rede</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-cpu"/></svg></div><span>Venda de equipamentos informáticos</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-satellite"/></svg></div><span>Provedores de internet em V-SAT</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-palette"/></svg></div><span>Design criativo</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-chair"/></svg></div><span>Mobiliário para escritório de alta qualidade</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-package"/></svg></div><span>Consumíveis para escritórios</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-hardhat"/></svg></div><span>Engenharia civil</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-megaphone"/></svg></div><span>Streaming e Marketing Digital</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-database"/></svg></div><span>Redes Metropolitanas (Data Center)</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-droplet"/></svg></div><span>Sistema de Distribuição de Abastecimento de Água</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-sun"/></svg></div><span>Iluminação Pública e Painéis Solares</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-heart-pulse"/></svg></div><span>Venda e instalação de equipamentos hospitalares</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-pill"/></svg></div><span>Venda de produtos farmacêuticos</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-clipboard-check"/></svg></div><span>Fiscalização e acompanhamento de obra</span></div>
+      <div class="service-chip"><div class="icon-box"><svg class="icon"><use href="#i-briefcase"/></svg></div><span>Business broker</span></div>
+    </div>
+
+    <p class="center-note">Não encontrou o que precisa? Fale com a nossa equipe e monte uma solução sob medida.</p>
+    <div class="center-btn"><a href="#contato" class="btn btn-primary">Falar com um Especialista</a></div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Nossos <span class="accent">Diferenciais</span></h2>
+      <p class="section-sub">O que nos torna únicos no mercado e a melhor escolha para transformar sua gestão.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-rocket"/></svg></div>
+        <h3>Implementação Rápida</h3>
+        <p>Sistema no ar em até 15 dias com migração de dados completa e treinamento incluído</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-headset"/></svg></div>
+        <h3>Suporte Premium</h3>
+        <p>Atendimento humanizado 24/7 por chat, telefone ou e-mail com SLA garantido</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-refresh"/></svg></div>
+        <h3>Atualizações Contínuas</h3>
+        <p>Novas funcionalidades e melhorias constantes sem custo adicional</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-dollar"/></svg></div>
+        <h3>ROI Comprovado</h3>
+        <p>Redução de até 40% nos custos operacionais e aumento de 60% na produtividade</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-cap"/></svg></div>
+        <h3>Treinamento Completo</h3>
+        <p>Capacitação da equipe com materiais didáticos e suporte durante todo o processo</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-trending"/></svg></div>
+        <h3>Escalabilidade Garantida</h3>
+        <p>Infraestrutura que cresce junto com seu negócio sem perder performance</p>
+      </div>
+    </div>
+
+    <div class="guarantee">
+      <h3>Garantia de Satisfação</h3>
+      <p>Se você não estiver completamente satisfeito nos primeiros 30 dias, devolvemos seu investimento. Sem complicações.</p>
+      <div class="big">100% <span>Garantia de Satisfação</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="bg-tint">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">Como <span class="accent">Funciona</span></h2>
+      <p class="section-sub">Um processo simples e transparente para transformar sua gestão em poucos passos.</p>
+    </div>
+
+    <div class="grid-4">
+      <div class="step-card">
+        <div class="step-icon"><svg class="icon" style="color:#fff"><use href="#i-message"/></svg></div>
+        <h3>Conversa Inicial</h3>
+        <p>Entendemos suas necessidades, desafios e objetivos para propor a melhor solução.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon"><svg class="icon" style="color:#fff"><use href="#i-clipboard"/></svg></div>
+        <h3>Análise e Proposta</h3>
+        <p>Mapeamos seus processos e apresentamos uma proposta personalizada com investimento detalhado.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon"><svg class="icon" style="color:#fff"><use href="#i-settings"/></svg></div>
+        <h3>Implementação</h3>
+        <p>Configuramos o sistema, migramos seus dados e treinamos sua equipe para uso eficiente.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon"><svg class="icon" style="color:#fff"><use href="#i-repeat"/></svg></div>
+        <h3>Acompanhamento</h3>
+        <p>Suporte contínuo, atualizações constantes e consultoria para maximizar seus resultados.</p>
+      </div>
+    </div>
+
+    <p class="center-note">Todo o processo é acompanhado por especialistas dedicados ao sucesso do seu projeto</p>
+    <div class="center-btn"><a href="#contato" class="btn btn-primary">Começar Agora</a></div>
+  </div>
+</section>
+
+<!-- TESTEMUNHOS -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">O Que Nossos <span class="accent">Clientes Dizem</span></h2>
+      <p class="section-sub">Histórias reais de empresas que transformaram sua gestão com o Caracol.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="avatar a1">MT</div>
+          <div><h4>Dr. Mbenza Tubi</h4><span>Diretor · Centro Médico Lenmed</span></div>
+        </div>
+        <div class="stars">
+          <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+        </div>
+        <p>"O Caracol Hospitalar transformou completamente nossa operação. Reduzimos o tempo de atendimento em 35% e eliminamos erros no faturamento. A equipe da Wobotec nos deu todo o suporte necessário."</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="avatar a2">FS</div>
+          <div><h4>Francisco João Da Silva </h4><span>Diretor Pedagógico · Fonte de Saber</span></div>
+        </div>
+        <div class="stars">
+          <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+        </div>
+        <p>"Impressionante como o Caracol Escolar facilitou a comunicação com os pais e automatizou processos burocráticos. Nossa equipe foca no que realmente importa: a educação."</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="avatar a3">CM</div>
+          <div><h4>João Nhanga</h4><span>Proprietário · Farmácia JN</span></div>
+        </div>
+        <div class="stars">
+          <svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg>
+        </div>
+        <p>"Tínhamos 2 Farmácias e era impossível ter controle real do estoque e das vendas. Com o Caracol tudo mudou. Hoje temos visibilidade total e abrimos mais 3 unidades com confiança."</p>
+      </div>
+    </div>
+
+    <div class="stats-bar four">
+      <div class="stat"><b>4.9/5</b><span>Avaliação média</span></div>
+      <div class="stat"><b>500+</b><span>Clientes ativos</span></div>
+      <div class="stat"><b>98%</b><span>Taxa de satisfação</span></div>
+      <div class="stat"><b>24/7</b><span>Suporte disponível</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES / PARCEIROS -->
+<section class="bg-tint">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Confiança de Mercado</span>
+      <h2 class="section-title">Clientes e <span class="accent">Parceiros</span></h2>
+      <p class="section-sub">Empresas de diferentes setores confiam na Wobotec para transformar sua gestão todos os dias.</p>
+    </div>
+  </div>
+
+  <div class="logos-marquee-wrap">
+    <div class="logos-track" id="logosTrack">
+      <div class="logo-item"><img  src="assets/img/clients/angola.png" alt=""> </div>
+      <div class="logo-item"><img  src="assets/img/clients/fonte.png" alt=""> </div>
+      <div class="logo-item"><img  src="assets/img/clients/cital.png" alt=""> </div>
+      <div class="logo-item"><img  src="assets/img/clients/bomsa.png" alt=""> </div>
+      <div class="logo-item"><img  src="assets/img/clients/muxito.png" alt=""> </div>
+      <div class="logo-item"><img  src="assets/img/clients/davit.png" alt=""> </div>
+      <div class="logo-item"><img  src="assets/img/clients/its.png" alt=""> </div>
+      <div class="logo-item"><img  src="assets/img/clients/ieba.png" alt=""> </div>
+      <div class="logo-item"><img  src="assets/img/clients/alex.png" alt=""> </div>
+      <div class="logo-item"><img  src="assets/img/clients/lenmed.png" alt=""> </div>
+      <div class="logo-item"><img  src="assets/img/clients/muxito.png" alt=""> </div>             
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">Entre em Contato</span>
+      <h2>Pronto para <span class="accent">Transformar</span> sua Gestão?</h2>
+      <p class="lead">Agende uma demonstração gratuita e descubra como o Caracol pode revolucionar seus processos de gestão.</p>
+
+      <div class="contact-item">
+        <div class="icon-box"><svg class="icon"><use href="#i-phone"/></svg></div>
+        <div><h4>Telefone</h4><p>(11) 3000-0000 · (11) 99999-9999</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="icon-box"><svg class="icon"><use href="#i-mail"/></svg></div>
+        <div><h4>E-mail</h4><p>geral@wobotec.ao · vendas@wobotec.ao</p></div>
+      </div>
+      <div class="contact-item">
+        <div class="icon-box"><svg class="icon"><use href="#i-pin"/></svg></div>
+        <div><h4>Endereço Principal</h4><p>Torre Sul - Av. Des. Moreira, 1300 - 1º Andar - Aldeota, Fortaleza - CE, 60170-002 - Ceará - Brasil </p></div>
+        <div><h4>Endereço Secundário</h4><p>Rua Azevedo Brito, Paaragem da Verdinha, Cacuaco - Luanda - Angola</p></div>
+      </div>
+
+      <div class="hours-box">
+        <div class="icon-box"><svg class="icon" style="color:#fff"><use href="#i-headset"/></svg></div>
         <div>
-          <h1>
-            Transforme sua gestão com <span class="accent">inteligência</span>
-          </h1>
-          <p>
-            A Wobotec desenvolve o <strong>Caracol</strong>, um ecossistema
-            completo de sistemas de gestão modernos, seguros e eficientes que
-            impulsionam o crescimento do seu negócio.
-          </p>
-          <div class="hero-buttons">
-            <a href="#caracol" class="btn btn-primary"
-              >Conhecer o Caracol
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="13,6 19,12 13,18" />
-              </svg>
-            </a>
-            <a href="#contato" class="btn btn-outline"
-              >Solicitar Demonstração</a
-            >
-          </div>
-        </div>
-        <div class="hero-art-wrap">
-          <div class="hero-art">
-            <img src="assets/img/car-agt.png" alt="LogoHero" />
-          </div>
+          <b>Atendimento Comercial</b>
+          <span>Segunda a Sexta: 8h às 18h</span>
+          <span>Suporte técnico disponível 24/7</span>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- SOBRE -->
-    <section id="sobre">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">
-            Sobre a <span class="accent">Wobotec</span>
-          </h2>
-          <p class="section-sub">
-            Somos uma software house especializada em criar soluções
-            inteligentes e escaláveis que transformam a forma como empresas
-            gerenciam seus processos.
-          </p>
-        </div>
+    <div class="form-card">
+      <h3>Solicite uma Demonstração Gratuita</h3>
+      <p class="sub">Preencha o formulário e nossa equipe entra em contato.</p>
+      <form id="contactForm">
+        <div class="field"><label for="nome">Nome Completo *</label><input id="nome" type="text" placeholder="Seu nome" required></div>
+        <div class="field"><label for="email">E-mail *</label><input id="email" type="email" placeholder="seu@email.com" required></div>
+        <div class="field"><label for="tel">Telefone *</label><input id="tel" type="tel" placeholder="(11) 99999-9999" required></div>
+        <div class="field"><label for="empresa">Empresa</label><input id="empresa" type="text" placeholder="Nome da sua empresa"></div>
+        <div class="field"><label for="msg">Mensagem</label><textarea id="msg" rows="4" placeholder="Conte-nos sobre suas necessidades"></textarea></div>
+        <button type="submit" class="btn btn-primary btn-block">
+          Enviar Solicitação
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+      <p class="form-note">Respondemos em até 24 horas úteis</p>
+    </div>
+  </div>
+</section>
 
-        <div class="grid-4">
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-target" />
-              </svg>
-            </div>
-            <h3>Foco em Resultados</h3>
-            <p>Desenvolvemos soluções que geram impacto real no seu negócio.</p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-users" />
-              </svg>
-            </div>
-            <h3>Time Especializado</h3>
-            <p>
-              Profissionais qualificados com anos de experiência no mercado.
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-shield-check" />
-              </svg>
-            </div>
-            <h3>Qualidade Garantida</h3>
-            <p>Processos rigorosos de desenvolvimento e testes de qualidade.</p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff"><use href="#i-zap" /></svg>
-            </div>
-            <h3>Tecnologia de Ponta</h3>
-            <p>
-              Utilizamos as mais modernas ferramentas e frameworks do mercado.
-            </p>
-          </div>
-        </div>
-
-        <div class="stats-bar">
-          <div class="stat"><b>10+</b><span>Anos de experiência</span></div>
-          <div class="stat"><b>500+</b><span>Clientes satisfeitos</span></div>
-          <div class="stat"><b>99.9%</b><span>Disponibilidade</span></div>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"> <img class="mark" src="assets/img/logoAssin.png" alt=""></div>
+        <p>Soluções inteligentes e escaláveis para gestão empresarial através da tecnologia.</p>
+        <div class="social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 8.5h2.5V5.3H14c-2 0-3.4 1.5-3.4 3.6v2H8.7v3.1h1.9V19h3.1v-5h2.1l.4-3.1h-2.5V9c0-.5.3-.9.9-.9z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="9" width="3.4" height="10.5"/><circle cx="5.7" cy="5.5" r="1.6"/><path d="M11 19.5V9m0 4.2c0-2.7 1.6-4.2 3.6-4.2 2.2 0 3.4 1.5 3.4 4.2v6.3"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle class="icon-solid" cx="17.2" cy="6.8" r=".9"/></svg></a>
+          <a href="#" aria-label="Twitter/X"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l7.2 9.6L4.4 20H6.8l6-6.6 4.6 6.6H20l-7.6-10L19.4 4h-2.4L11.4 10 7 4z"/></svg></a>
         </div>
       </div>
-    </section>
-
-    <!-- CARACOL -->
-    <section id="caracol" class="bg-tint">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow"
-            ><svg class="icon" style="width: 14px; height: 14px">
-              <use href="#i-spiral" /></svg
-            >Produto Principal</span
-          >
-          <h2 class="section-title">
-            Conheça o <span class="accent">Caracol</span>
-          </h2>
-          <p class="section-sub">
-            Um ecossistema completo de sistemas de gestão modernos, seguros e
-            eficientes. Desenvolvido para atender as necessidades específicas de
-            diferentes setores com excelência e inovação.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-shield" />
-              </svg>
-            </div>
-            <h3>Segurança Avançada</h3>
-            <p>
-              Proteção de dados com criptografia de ponta e conformidade com
-              LGPD
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-activity" />
-              </svg>
-            </div>
-            <h3>Alta Performance</h3>
-            <p>
-              Sistema otimizado para processar milhares de operações
-              simultaneamente
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-cloud" />
-              </svg>
-            </div>
-            <h3>Cloud Native</h3>
-            <p>
-              Hospedagem em nuvem com backup automático e acesso de qualquer
-              lugar
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-bar-chart" />
-              </svg>
-            </div>
-            <h3>Análise Inteligente</h3>
-            <p>
-              Dashboards e relatórios em tempo real para decisões estratégicas
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-sliders" />
-              </svg>
-            </div>
-            <h3>Controle Total</h3>
-            <p>
-              Gerencie permissões e acessos com granularidade e auditoria
-              completa
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-smartphone" />
-              </svg>
-            </div>
-            <h3>Multi-Plataforma</h3>
-            <p>
-              Acesse pelo computador, tablet ou smartphone com interface
-              responsiva
-            </p>
-          </div>
-        </div>
-
-        <div class="caracol-cta">
-          <h3>Por que escolher o Caracol?</h3>
-          <p>
-            Mais do que um software, o Caracol é um parceiro estratégico que
-            evolui junto com seu negócio. Oferecemos não apenas tecnologia, mas
-            uma solução completa que transforma a gestão empresarial em vantagem
-            competitiva.
-          </p>
-          <div class="hero-buttons">
-            <a href="#contato" class="btn btn-primary">Agendar Demonstração</a>
-            <a href="#" class="btn btn-outline">Ver Casos de Sucesso</a>
-          </div>
-        </div>
+      <div>
+        <h5>Links Rápidos</h5>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#caracol">Caracol</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#diferenciais">Diferenciais</a></li>
+        </ul>
       </div>
-    </section>
-
-    <!-- PRODUTOS -->
-    <section id="produtos">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">
-            Nossos <span class="accent">Produtos</span>
-          </h2>
-          <p class="section-sub">
-            Soluções especializadas para cada segmento, mantendo a mesma
-            excelência e qualidade que fazem do Caracol referência no mercado.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="product-card featured">
-            <div class="featured-tag">Mais Procurado</div>
-            <div class="product-body">
-              <div class="icon-box">
-                <svg class="icon"><use href="#i-cap" /></svg>
-              </div>
-              <h3>Caracol Escolar</h3>
-              <p class="lead">Sistema de gestão escolar completo</p>
-              <p class="desc">
-                Controle de matrículas, notas, frequência, financeiro e
-                comunicação com pais.
-              </p>
-            </div>
-            <div class="product-footer">
-              <a href="#contato" class="btn btn-primary btn-block"
-                >Saiba Mais</a
-              >
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-body">
-              <div class="icon-box">
-                <svg class="icon"><use href="#i-cart" /></svg>
-              </div>
-              <h3>Caracol Venda</h3>
-              <p class="lead">
-                Sistema de gestão comercial e controle de vendas
-              </p>
-              <p class="desc">
-                PDV, estoque, nota fiscal eletrônica, relatórios de vendas e CRM
-                integrado.
-              </p>
-            </div>
-            <div class="product-footer">
-              <a href="#contato" class="btn btn-outline btn-block"
-                >Saiba Mais</a
-              >
-            </div>
-          </div>
-          <div class="product-card">
-            <div class="product-body">
-              <div class="icon-box">
-                <svg class="icon"><use href="#i-heart-pulse" /></svg>
-              </div>
-              <h3>Caracol Hospitalar</h3>
-              <p class="lead">Sistema de gestão hospitalar e clínica</p>
-              <p class="desc">
-                Prontuário eletrônico, agendamento, faturamento, controle de
-                leitos e farmácia.
-              </p>
-            </div>
-            <div class="product-footer">
-              <a href="#contato" class="btn btn-outline btn-block"
-                >Saiba Mais</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <p class="center-note">
-          Cada produto é totalmente customizável para atender as necessidades
-          específicas do seu negócio
-        </p>
-        <div class="center-btn">
-          <a href="#contato" class="btn btn-primary"
-            >Solicitar Orçamento Personalizado</a
-          >
-        </div>
+      <div>
+        <h5>Produtos</h5>
+        <ul>
+          <li><a href="#">Caracol Escolar</a></li>
+          <li><a href="#">Caracol Venda</a></li>
+          <li><a href="#">Caracol Hospitalar</a></li>
+        </ul>
       </div>
-    </section>
-
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="bg-tint">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Portfólio de Serviços</span>
-          <h2 class="section-title">
-            Nossos <span class="accent">Serviços</span>
-          </h2>
-          <p class="section-sub">
-            Além do Caracol, oferecemos um portfólio amplo de soluções em
-            tecnologia, infraestrutura e engenharia para atender empresas de
-            qualquer porte e setor.
-          </p>
-        </div>
-
-        <div class="service-grid">
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-network" /></svg>
-            </div>
-            <span>Redes estruturadas</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-server" /></svg>
-            </div>
-            <span>Administração de sistemas</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-building" /></svg>
-            </div>
-            <span>Arquitectura e urbanismo</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-monitor" /></svg>
-            </div>
-            <span>Aplicações móveis, Websites, ERP e Desktop</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-message" /></svg>
-            </div>
-            <span>Sistemas unificados de comunicação</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-lock" /></svg>
-            </div>
-            <span>Soluções de segurança de rede</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-cpu" /></svg>
-            </div>
-            <span>Venda de equipamentos informáticos</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-satellite" /></svg>
-            </div>
-            <span>Provedores de internet em V-SAT</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-palette" /></svg>
-            </div>
-            <span>Design criativo</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-chair" /></svg>
-            </div>
-            <span>Mobiliário para escritório de alta qualidade</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-package" /></svg>
-            </div>
-            <span>Consumíveis para escritórios</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-hardhat" /></svg>
-            </div>
-            <span>Engenharia civil</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-megaphone" /></svg>
-            </div>
-            <span>Streaming e Marketing Digital</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-database" /></svg>
-            </div>
-            <span>Redes Metropolitanas (Data Center)</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-droplet" /></svg>
-            </div>
-            <span>Sistema de Distribuição de Abastecimento de Água</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-sun" /></svg>
-            </div>
-            <span>Iluminação Pública e Painéis Solares</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-heart-pulse" /></svg>
-            </div>
-            <span>Venda e instalação de equipamentos hospitalares</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-pill" /></svg>
-            </div>
-            <span>Venda de produtos farmacêuticos</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-clipboard-check" /></svg>
-            </div>
-            <span>Fiscalização e acompanhamento de obra</span>
-          </div>
-          <div class="service-chip">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-briefcase" /></svg>
-            </div>
-            <span>Business broker</span>
-          </div>
-        </div>
-
-        <p class="center-note">
-          Não encontrou o que precisa? Fale com a nossa equipe e monte uma
-          solução sob medida.
-        </p>
-        <div class="center-btn">
-          <a href="#contato" class="btn btn-primary"
-            >Falar com um Especialista</a
-          >
-        </div>
+      <div>
+        <h5>Contato</h5>
+        <ul>
+          <li class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-phone"/></svg>(11) 3000-0000</li>
+          <li class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><use href="#i-mail"/></svg>contato@wobotec.com.br</li>
+        </ul>
+        <h5 style="margin-top:24px;">Legal</h5>
+        <ul>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">LGPD</a></li>
+          <li><a href="#">Contrato de Serviço</a></li>
+        </ul>
       </div>
-    </section>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Wobotec. Todos os direitos reservados. &nbsp;|&nbsp; CNPJ: 00.000.000/0001-00 &nbsp;|&nbsp; Desenvolvido com tecnologia de ponta
+    </div>
+  </div>
+</footer>
 
-    <!-- DIFERENCIAIS -->
-    <section id="diferenciais">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">
-            Nossos <span class="accent">Diferenciais</span>
-          </h2>
-          <p class="section-sub">
-            O que nos torna únicos no mercado e a melhor escolha para
-            transformar sua gestão.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-rocket" />
-              </svg>
-            </div>
-            <h3>Implementação Rápida</h3>
-            <p>
-              Sistema no ar em até 15 dias com migração de dados completa e
-              treinamento incluído
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-headset" />
-              </svg>
-            </div>
-            <h3>Suporte Premium</h3>
-            <p>
-              Atendimento humanizado 24/7 por chat, telefone ou e-mail com SLA
-              garantido
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-refresh" />
-              </svg>
-            </div>
-            <h3>Atualizações Contínuas</h3>
-            <p>
-              Novas funcionalidades e melhorias constantes sem custo adicional
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-dollar" />
-              </svg>
-            </div>
-            <h3>ROI Comprovado</h3>
-            <p>
-              Redução de até 40% nos custos operacionais e aumento de 60% na
-              produtividade
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff"><use href="#i-cap" /></svg>
-            </div>
-            <h3>Treinamento Completo</h3>
-            <p>
-              Capacitação da equipe com materiais didáticos e suporte durante
-              todo o processo
-            </p>
-          </div>
-          <div class="feature-card">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-trending" />
-              </svg>
-            </div>
-            <h3>Escalabilidade Garantida</h3>
-            <p>
-              Infraestrutura que cresce junto com seu negócio sem perder
-              performance
-            </p>
-          </div>
-        </div>
-
-        <div class="guarantee">
-          <h3>Garantia de Satisfação</h3>
-          <p>
-            Se você não estiver completamente satisfeito nos primeiros 30 dias,
-            devolvemos seu investimento. Sem complicações.
-          </p>
-          <div class="big">100% <span>Garantia de Satisfação</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMO FUNCIONA -->
-    <section class="bg-tint">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">
-            Como <span class="accent">Funciona</span>
-          </h2>
-          <p class="section-sub">
-            Um processo simples e transparente para transformar sua gestão em
-            poucos passos.
-          </p>
-        </div>
-
-        <div class="grid-4">
-          <div class="step-card">
-            <div class="step-icon">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-message" />
-              </svg>
-            </div>
-            <h3>Conversa Inicial</h3>
-            <p>
-              Entendemos suas necessidades, desafios e objetivos para propor a
-              melhor solução.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-icon">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-clipboard" />
-              </svg>
-            </div>
-            <h3>Análise e Proposta</h3>
-            <p>
-              Mapeamos seus processos e apresentamos uma proposta personalizada
-              com investimento detalhado.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-icon">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-settings" />
-              </svg>
-            </div>
-            <h3>Implementação</h3>
-            <p>
-              Configuramos o sistema, migramos seus dados e treinamos sua equipe
-              para uso eficiente.
-            </p>
-          </div>
-          <div class="step-card">
-            <div class="step-icon">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-repeat" />
-              </svg>
-            </div>
-            <h3>Acompanhamento</h3>
-            <p>
-              Suporte contínuo, atualizações constantes e consultoria para
-              maximizar seus resultados.
-            </p>
-          </div>
-        </div>
-
-        <p class="center-note">
-          Todo o processo é acompanhado por especialistas dedicados ao sucesso
-          do seu projeto
-        </p>
-        <div class="center-btn">
-          <a href="#contato" class="btn btn-primary">Começar Agora</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTEMUNHOS -->
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">
-            O Que Nossos <span class="accent">Clientes Dizem</span>
-          </h2>
-          <p class="section-sub">
-            Histórias reais de empresas que transformaram sua gestão com o
-            Caracol.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="testi-card">
-            <div class="testi-top">
-              <div class="avatar a1">MT</div>
-              <div>
-                <h4>Dr. Mbenza Tubi</h4>
-                <span>Diretor · Centro Médico Lenmed</span>
-              </div>
-            </div>
-            <div class="stars">
-              <svg class="icon"><use href="#i-star" /></svg
-              ><svg class="icon"><use href="#i-star" /></svg
-              ><svg class="icon"><use href="#i-star" /></svg
-              ><svg class="icon"><use href="#i-star" /></svg
-              ><svg class="icon"><use href="#i-star" /></svg>
-            </div>
-            <p>
-              "O Caracol Hospitalar transformou completamente nossa operação.
-              Reduzimos o tempo de atendimento em 35% e eliminamos erros no
-              faturamento. A equipe da Wobotec nos deu todo o suporte
-              necessário."
-            </p>
-          </div>
-          <div class="testi-card">
-            <div class="testi-top">
-              <div class="avatar a2">FS</div>
-              <div>
-                <h4>Francisco João Da Silva</h4>
-                <span>Diretor Pedagógico · Fonte de Saber</span>
-              </div>
-            </div>
-            <div class="stars">
-              <svg class="icon"><use href="#i-star" /></svg
-              ><svg class="icon"><use href="#i-star" /></svg
-              ><svg class="icon"><use href="#i-star" /></svg
-              ><svg class="icon"><use href="#i-star" /></svg
-              ><svg class="icon"><use href="#i-star" /></svg>
-            </div>
-            <p>
-              "Impressionante como o Caracol Escolar facilitou a comunicação com
-              os pais e automatizou processos burocráticos. Nossa equipe foca no
-              que realmente importa: a educação."
-            </p>
-          </div>
-          <div class="testi-card">
-            <div class="testi-top">
-              <div class="avatar a3">CM</div>
-              <div>
-                <h4>João Nhanga</h4>
-                <span>Proprietário · Farmácia JN</span>
-              </div>
-            </div>
-            <div class="stars">
-              <svg class="icon"><use href="#i-star" /></svg
-              ><svg class="icon"><use href="#i-star" /></svg
-              ><svg class="icon"><use href="#i-star" /></svg
-              ><svg class="icon"><use href="#i-star" /></svg
-              ><svg class="icon"><use href="#i-star" /></svg>
-            </div>
-            <p>
-              "Tínhamos 2 Farmácias e era impossível ter controle real do
-              estoque e das vendas. Com o Caracol tudo mudou. Hoje temos
-              visibilidade total e abrimos mais 3 unidades com confiança."
-            </p>
-          </div>
-        </div>
-
-        <div class="stats-bar four">
-          <div class="stat"><b>4.9/5</b><span>Avaliação média</span></div>
-          <div class="stat"><b>500+</b><span>Clientes ativos</span></div>
-          <div class="stat"><b>98%</b><span>Taxa de satisfação</span></div>
-          <div class="stat"><b>24/7</b><span>Suporte disponível</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CLIENTES / PARCEIROS -->
-    <section class="bg-tint">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Confiança de Mercado</span>
-          <h2 class="section-title">
-            Clientes e <span class="accent">Parceiros</span>
-          </h2>
-          <p class="section-sub">
-            Empresas de diferentes setores confiam na Wobotec para transformar
-            sua gestão todos os dias.
-          </p>
-        </div>
-      </div>
-
-      <div class="logos-marquee-wrap">
-        <div class="logos-track" id="logosTrack">
-          <div class="logo-item">
-            <img src="assets/img/clients/angola.png" alt="Cliente" />
-          </div>
-          <div class="logo-item">
-            <img src="assets/img/clients/fonte.png" alt="Cliente" />
-          </div>
-          <div class="logo-item">
-            <img src="assets/img/clients/cital.png" alt="Cliente" />
-          </div>
-          <div class="logo-item">
-            <img src="assets/img/clients/bomsa.png" alt="Cliente" />
-          </div>
-          <div class="logo-item">
-            <img src="assets/img/clients/muxito.png" alt="Cliente" />
-          </div>
-          <div class="logo-item">
-            <img src="assets/img/clients/davit.png" alt="Cliente" />
-          </div>
-          <div class="logo-item">
-            <img src="assets/img/clients/its.png" alt="Cliente" />
-          </div>
-          <div class="logo-item">
-            <img src="assets/img/clients/ieba.png" alt="Cliente" />
-          </div>
-          <div class="logo-item">
-            <img src="assets/img/clients/alex.png" alt="Cliente" />
-          </div>
-          <div class="logo-item">
-            <img src="assets/img/clients/lenmed.png" alt="Cliente" />
-          </div>
-          <div class="logo-item">
-            <img src="assets/img/clients/muxito.png" alt="Cliente" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato">
-      <div class="container contact-grid">
-        <div class="contact-info">
-          <span class="eyebrow">Entre em Contato</span>
-          <h2>
-            Pronto para <span class="accent">Transformar</span> sua Gestão?
-          </h2>
-          <p class="lead">
-            Agende uma demonstração gratuita e descubra como o Caracol pode
-            revolucionar seus processos de gestão.
-          </p>
-
-          <div class="contact-item">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-phone" /></svg>
-            </div>
-            <div>
-              <h4>Telefone</h4>
-              <p>(11) 3000-0000 · (11) 99999-9999</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-mail" /></svg>
-            </div>
-            <div>
-              <h4>E-mail</h4>
-              <p>geral@wobotec.ao · vendas@wobotec.ao</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="icon-box">
-              <svg class="icon"><use href="#i-pin" /></svg>
-            </div>
-            <div>
-              <h4>Endereço Principal</h4>
-              <p>
-                Torre Sul - Av. Des. Moreira, 1300 - 1º Andar - Aldeota,
-                Fortaleza - CE, 60170-002 - Ceará - Brasil
-              </p>
-            </div>
-            <div>
-              <h4>Endereço Secundário</h4>
-              <p>
-                Rua Azevedo Brito, Paaragem da Verdinha, Cacuaco - Luanda -
-                Angola
-              </p>
-            </div>
-          </div>
-
-          <div class="hours-box">
-            <div class="icon-box">
-              <svg class="icon" style="color: #fff">
-                <use href="#i-headset" />
-              </svg>
-            </div>
-            <div>
-              <b>Atendimento Comercial</b>
-              <span>Segunda a Sexta: 8h às 18h</span>
-              <span>Suporte técnico disponível 24/7</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-card">
-          <h3>Solicite uma Demonstração Gratuita</h3>
-          <p class="sub">
-            Preencha o formulário e nossa equipe entra em contato.
-          </p>
-          <form id="contactForm">
-            <div class="field">
-              <label for="nome">Nome Completo *</label
-              ><input id="nome" type="text" placeholder="Seu nome" required />
-            </div>
-            <div class="field">
-              <label for="email">E-mail *</label
-              ><input
-                id="email"
-                type="email"
-                placeholder="seu@email.com"
-                required
-              />
-            </div>
-            <div class="field">
-              <label for="tel">Telefone *</label
-              ><input
-                id="tel"
-                type="tel"
-                placeholder="(11) 99999-9999"
-                required
-              />
-            </div>
-            <div class="field">
-              <label for="empresa">Empresa</label
-              ><input
-                id="empresa"
-                type="text"
-                placeholder="Nome da sua empresa"
-              />
-            </div>
-            <div class="field">
-              <label for="msg">Mensagem</label
-              ><textarea
-                id="msg"
-                rows="4"
-                placeholder="Conte-nos sobre suas necessidades"
-              ></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">
-              Enviar Solicitação
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <line x1="22" y1="2" x2="11" y2="13" />
-                <polygon points="22 2 15 22 11 13 2 9 22 2" />
-              </svg>
-            </button>
-          </form>
-          <p class="form-note">Respondemos em até 24 horas úteis</p>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="container">
-        <div class="footer-grid">
-          <div>
-            <div class="footer-logo">
-              <img class="mark" src="assets/img/logoAssin.png" alt="" />
-            </div>
-            <p>
-              Soluções inteligentes e escaláveis para gestão empresarial através
-              da tecnologia.
-            </p>
-            <div class="social">
-              <a href="#" aria-label="Facebook"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <path
-                    d="M14 8.5h2.5V5.3H14c-2 0-3.4 1.5-3.4 3.6v2H8.7v3.1h1.9V19h3.1v-5h2.1l.4-3.1h-2.5V9c0-.5.3-.9.9-.9z"
-                  /></svg
-              ></a>
-              <a href="#" aria-label="LinkedIn"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <rect x="4" y="9" width="3.4" height="10.5" />
-                  <circle cx="5.7" cy="5.5" r="1.6" />
-                  <path
-                    d="M11 19.5V9m0 4.2c0-2.7 1.6-4.2 3.6-4.2 2.2 0 3.4 1.5 3.4 4.2v6.3"
-                  /></svg
-              ></a>
-              <a href="#" aria-label="Instagram"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
-                  <circle cx="12" cy="12" r="3.6" />
-                  <circle class="icon-solid" cx="17.2" cy="6.8" r=".9" /></svg
-              ></a>
-              <a href="#" aria-label="Twitter/X"
-                ><svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <path
-                    d="M4 4l7.2 9.6L4.4 20H6.8l6-6.6 4.6 6.6H20l-7.6-10L19.4 4h-2.4L11.4 10 7 4z"
-                  /></svg
-              ></a>
-            </div>
-          </div>
-          <div>
-            <h5>Links Rápidos</h5>
-            <ul>
-              <li><a href="#sobre">Sobre</a></li>
-              <li><a href="#caracol">Caracol</a></li>
-              <li><a href="#produtos">Produtos</a></li>
-              <li><a href="#servicos">Serviços</a></li>
-              <li><a href="#diferenciais">Diferenciais</a></li>
-            </ul>
-          </div>
-          <div>
-            <h5>Produtos</h5>
-            <ul>
-              <li><a href="#">Caracol Escolar</a></li>
-              <li><a href="#">Caracol Venda</a></li>
-              <li><a href="#">Caracol Hospitalar</a></li>
-            </ul>
-          </div>
-          <div>
-            <h5>Contato</h5>
-            <ul>
-              <li class="footer-contact-item">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <use href="#i-phone" /></svg
-                >(11) 3000-0000
-              </li>
-              <li class="footer-contact-item">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                >
-                  <use href="#i-mail" /></svg
-                >contato@wobotec.com.br
-              </li>
-            </ul>
-            <h5 style="margin-top: 24px">Legal</h5>
-            <ul>
-              <li><a href="#">Política de Privacidade</a></li>
-              <li><a href="#">Termos de Uso</a></li>
-              <li><a href="#">LGPD</a></li>
-              <li><a href="#">Contrato de Serviço</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          © 2026 Wobotec. Todos os direitos reservados. &nbsp;|&nbsp; CNPJ:
-          00.000.000/0001-00 &nbsp;|&nbsp; Desenvolvido com tecnologia de ponta
-        </div>
-      </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-  </body>
+<script src="js/main.js"></script>
+</body>
 </html>
