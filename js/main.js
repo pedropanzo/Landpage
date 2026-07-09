@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
       { selector: '.contact-info .hours-box', effect: 'reveal-left' },
       { selector: '.form-card', effect: 'reveal-right' },
       { selector: '.section-head', effect: '' },
-      { selector: '.logos-marquee-wrap', effect: '' }
+      { selector: '.logos-marquee-wrap', effect: '' },
+      { selector: '#galeria .gallery-item', effect: 'reveal-scale' }
     ];
 
     var STAGGER_MS = 90;
@@ -73,6 +74,70 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     revealEls.forEach(function (el) { observer.observe(el); });
+  })();
+
+  // ------------------------------------------------------
+  // Galeria — lightbox (visualização em zoom)
+  // ------------------------------------------------------
+  (function () {
+    var items = Array.prototype.slice.call(document.querySelectorAll('.gallery-item'));
+    var lightbox = document.getElementById('lightbox');
+    if (!items.length || !lightbox) return;
+
+    var lightboxImg = document.getElementById('lightboxImg');
+    var counter = document.getElementById('lightboxCounter');
+    var btnClose = document.getElementById('lightboxClose');
+    var btnPrev = document.getElementById('lightboxPrev');
+    var btnNext = document.getElementById('lightboxNext');
+    var current = 0;
+
+    function render() {
+      var item = items[current];
+      lightboxImg.src = item.getAttribute('data-full');
+      lightboxImg.alt = item.querySelector('img').alt || '';
+      counter.textContent = (current + 1) + ' / ' + items.length;
+    }
+
+    function open(index) {
+      current = index;
+      render();
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function next() {
+      current = (current + 1) % items.length;
+      render();
+    }
+
+    function prev() {
+      current = (current - 1 + items.length) % items.length;
+      render();
+    }
+
+    items.forEach(function (item, i) {
+      item.addEventListener('click', function () { open(i); });
+    });
+
+    btnClose.addEventListener('click', close);
+    btnNext.addEventListener('click', next);
+    btnPrev.addEventListener('click', prev);
+
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
   })();
 
   // Contact form submit feedback (front-end only demo)

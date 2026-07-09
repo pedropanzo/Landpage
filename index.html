@@ -81,6 +81,7 @@
         <a href="#servicos">Serviços</a>
         <a href="#diferenciais">Diferenciais</a>
         <a href="#casos">Casos de Sucesso</a>
+        <a href="#galeria">Galeria</a>
       </div>    
       <a class="nav-cta" href="#contato">Contato</a>
       <button class="menu-toggle" aria-label="Abrir menu">
@@ -95,6 +96,7 @@
     <a href="#servicos">Serviços</a>
     <a href="#diferenciais">Diferenciais</a>
     <a href="#casos">Casos de Sucesso</a>
+    <a href="#galeria">Galeria</a>
     <a href="#contato">Contato</a>
   </div>
 </header>
@@ -102,7 +104,8 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="container hero-grid">
+  <canvas id="wb-particles"></canvas>
+  <div class="container hero-grid">    
     <div>
       <h1>Transforme sua gestão com <span class="accent">inteligência</span></h1>
       <p><strong>Caracol</strong>, um ecossistema completo de sistemas de gestão modernos, seguros e eficientes que impulsionam o crescimento do seu negócio.</p>
@@ -118,6 +121,7 @@
         <img src="assets/img/car-agt.png" alt="LogoHero">
       </div>      
     </div>
+    
   </div>
 </section>
 
@@ -520,6 +524,81 @@
   </div>
 </section>
 
+<!-- GALERIA -->
+<section id="galeria">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><svg class="icon" style="width:14px;height:14px"><use href="#i-palette"/></svg>Nosso Trabalho</span>
+      <h2 class="section-title">Galeria de <span class="accent">Momentos</span></h2>
+      <p class="section-sub">Um pouco do que fazemos no dia a dia: equipe, projetos e bastidores da Wobotec.</p>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-01.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-01.jpg" alt="Wobotec — foto 01 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-02.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-02.jpg" alt="Wobotec — foto 02 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-03.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-03.jpg" alt="Wobotec — foto 03 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-04.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-04.jpg" alt="Wobotec — foto 04 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-05.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-05.jpg" alt="Wobotec — foto 05 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-06.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-06.jpg" alt="Wobotec — foto 06 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-07.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-07.jpg" alt="Wobotec — foto 07 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-08.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-08.jpg" alt="Wobotec — foto 08 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-09.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-09.jpg" alt="Wobotec — foto 09 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-10.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-10.jpg" alt="Wobotec — foto 10 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-11.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-11.jpg" alt="Wobotec — foto 11 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-12.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-12.jpg" alt="Wobotec — foto 12 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+      <figure class="gallery-item" data-full="assets/img/galeria/galeria-13.jpg">
+        <img src="assets/img/galeria/thumbs/galeria-13.jpg" alt="Wobotec — foto 13 da galeria" loading="lazy">
+        <span class="zoom-icon"><svg class="icon" style="width:16px;height:16px"><use href="#i-target"/></svg></span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX (visualização em zoom da galeria) -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da imagem">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
+  <button class="lightbox-prev" id="lightboxPrev" aria-label="Imagem anterior">&#10094;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="lightbox-next" id="lightboxNext" aria-label="Próxima imagem">&#10095;</button>
+  <span class="lightbox-counter" id="lightboxCounter"></span>
+</div>
+
 <!-- CONTATO -->
 <section id="contato">
   <div class="container contact-grid">
@@ -624,5 +703,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/particles.js"></script>
+
 </body>
 </html>
