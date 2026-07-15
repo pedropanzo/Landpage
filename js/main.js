@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function () {
       { selector: '#produtos .product-card', effect: 'reveal-scale' },
       { selector: '#servicos .service-chip', effect: '' },
       { selector: '#servicos .step-card', effect: '' },
+      { selector: '#estagios .feature-card', effect: '' },
+      { selector: '#estagios .service-chip', effect: '' },
       { selector: '.testi-card', effect: 'reveal-scale' },
       { selector: '.guarantee', effect: 'reveal-zoom' },
       { selector: '#diferenciais .feature-card', effect: '' },
